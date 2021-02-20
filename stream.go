@@ -2,7 +2,6 @@ package jsonrpc2
 
 import (
 	"bufio"
-	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -79,6 +78,7 @@ type ObjectCodec interface {
 	ReadObject(stream *bufio.Reader, v interface{}) error
 }
 
+/*
 // VarintObjectCodec reads/writes JSON-RPC 2.0 objects with a varint
 // header that encodes the byte length.
 type VarintObjectCodec struct{}
@@ -108,6 +108,7 @@ func (VarintObjectCodec) ReadObject(stream *bufio.Reader, v interface{}) error {
 	}
 	return json.NewDecoder(io.LimitReader(stream, int64(b))).Decode(v)
 }
+*/
 
 // VSCodeObjectCodec reads/writes JSON-RPC 2.0 objects with
 // Content-Length and Content-Type headers, as specified by
